@@ -1,1 +1,11 @@
-<p>ip-details works!</p>
+<div class="app-ip-address-tracker">
+  <div class="app-ip-address-tracker__container">
+    <span>Details</span>
+    <!-- TODO:Please verify the correctness of the asynchronous function and the data retrieval method from the API. -->
+    <div *ngFor="let apiData of details | async">
+      {{ apiData.ip }}
+      {{ apiData.location }}
+      {{ apiData.isp }}
+    </div>
+  </div>
+</div>
