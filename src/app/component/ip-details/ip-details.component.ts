@@ -11,7 +11,7 @@ import { ApiData } from '../../models/information.interface';
 })
 export class IPDetailsComponent implements OnInit {
   readonly apiUrl = environment.apiUrl;
-  details?: Observable<ApiData[]>;
+  details?: Observable<ApiData[]> | undefined;
 
   constructor(private http: HttpClient) {}
 
