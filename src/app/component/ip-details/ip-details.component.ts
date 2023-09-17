@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { DataService } from '../../services/data.service';
 import { ApiData } from '../../models/information.interface';
 
 @Component({
@@ -10,12 +8,17 @@ import { ApiData } from '../../models/information.interface';
   styleUrls: ['./ip-details.component.scss'],
 })
 export class IPDetailsComponent implements OnInit {
-  readonly apiUrl = environment.apiUrl;
-  details?: Observable<ApiData[]> | undefined;
-
-  constructor(private http: HttpClient) {}
+  public apiData: ApiData | undefined;
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.details = this.http.get<ApiData[]>(this.apiUrl);
+    this.getDataForIpAddress('192.168.100.5');
+  }
+
+  getDataForIpAddress(ipAddress: string): void {
+    this.dataService.getData(ipAddress).subscribe(data => {
+      this.apiData = data;
+      console.log(this.apiData);
+    });
   }
 }

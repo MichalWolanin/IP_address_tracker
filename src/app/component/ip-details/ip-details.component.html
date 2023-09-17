@@ -1,10 +1,10 @@
 <div class="app-ip-address-tracker">
   <div class="app-ip-address-tracker__container">
     <span>Details</span>
-    <!-- TODO:Please verify the correctness of the asynchronous function and the data retrieval method from the API. -->
-    <div *ngFor="let apiData of details | async">
-      {{ apiData.ip }}
-      {{ apiData.location }}
+    <!-- TODO: Change ngIf to ngFor -->
+    <div *ngIf="apiData">
+      <p>Address IP: {{ apiData.ip }}</p>
+      <p>Country: {{ apiData.location }}</p>
       {{ apiData.isp }}
     </div>
   </div>
