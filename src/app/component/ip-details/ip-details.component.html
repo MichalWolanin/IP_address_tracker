@@ -1,11 +1,13 @@
 <div class="app-ip-address-tracker">
   <div class="app-ip-address-tracker__container">
-    <span>Details</span>
-    <!-- TODO: Change ngIf to ngFor -->
-    <div *ngIf="apiData">
-      <p>Address IP: {{ apiData.ip }}</p>
-      <p>Country: {{ apiData.location }}</p>
-      {{ apiData.isp }}
+    <div class="app-ip-address-tracker__details">
+      <!-- TODO: Change ngIf to ngFor -->
+      <div *ngIf="apiData">
+        <span>ip address: {{ apiData.ip }}</span>
+        <span>location: {{ apiData.location }}</span>
+        <span>timezone:{{ apiData.location.timezone }}</span>
+        <span>isp:{{ apiData.isp }}</span>
+      </div>
     </div>
   </div>
 </div>
