@@ -19,7 +19,6 @@ export class IPDetailsComponent implements OnInit {
   getDataFromIpAddress(): void {
     this.dataService.getData(this.ipAddress).subscribe(data => {
       this.apiData = data;
-      console.log(this.apiData);
     });
   }
 }
