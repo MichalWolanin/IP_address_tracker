@@ -8,17 +8,17 @@ import { ApiData } from '../../models/information.interface';
   styleUrls: ['./ip-details.component.scss'],
 })
 export class IPDetailsComponent implements OnInit {
+  ipAddress = '';
   public apiData: ApiData | undefined;
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.getDataForIpAddress('192.168.100.5');
+    this.getDataFromIpAddress();
   }
 
-  getDataForIpAddress(ipAddress: string): void {
-    this.dataService.getData(ipAddress).subscribe(data => {
+  getDataFromIpAddress(): void {
+    this.dataService.getData(this.ipAddress).subscribe(data => {
       this.apiData = data;
-      console.log(this.apiData);
     });
   }
 }
