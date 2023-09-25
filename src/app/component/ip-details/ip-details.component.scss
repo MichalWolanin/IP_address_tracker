@@ -2,4 +2,11 @@
 
 .app-ip-address-tracker {
   font-family: $lato100;
+  font-size: 24px;
+
+  .app-ip-address-tracker__details {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+  }
 }
